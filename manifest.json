@@ -10,6 +10,7 @@
                     "storage",
                     "<all_urls>"],
     "content_scripts": [{
+        "run_at": "document_start",
         "js": ["content.js"],
         "matches": ["https://www.facebook.com/*"]
       }],
