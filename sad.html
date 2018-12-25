@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="main.js"></script>
+    <link href="popup.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  </head>
+  <body>
+    <ul class="nav nav-tabs nav-justified justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" id="timer-tab" data-toggle="tab" href="#timer" role="tab" aria-controls="tasks" aria-selected="true">Timer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="blocked-sites-tab" data-toggle="tab" href="#blockedSites" role="tab" aria-controls="streaks" aria-selected="false">Blocked Sites</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="analysis-tab" data-toggle="tab" href="#analysis" role="tab" aria-controls="analysis" aria-selected="false">Analysis</a>
+        </li>
+    </ul> 
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="timer" role="tabpanel" aria-labelledby="timer-tab">
+        <div class="circle">
+          <div class="circle-figure">
+            <svg width="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" >
+              <g transform="translate(110,110)">
+                <circle r="100" class="e-c-base"/>
+                <g transform="rotate(-90)">
+                  <circle r="100" class="e-c-progress"/>
+                  <g id="e-pointer">
+                    <circle cx="100" cy="0" r="8" class="e-c-pointer"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            <div class="controls">
+              <div class="display-remain-time">0</div>
+              <button class="play" id="pause"></button>
+            </div>
+          </div>
+        </div>
+        <button id="stop-blocking" class="btn btn-danger">Stop <i class="fas fa-stop"></i></button>
+      </div> 
+      <div class="tab-pane" id="blockedSites" role="tabpanel" aria-labelledby="blocked-sites-tab">
+        <form id="submitWebsite">
+          Website to block:
+          <input type="text" id="blockedWebsite" name="website">
+          <input type="submit">
+        </form>
+        <div id="blocked-sites-list">
+        </div> 
+      </div>
+      <div class="tab-pane" id="analysis" role="tabpanel" aria-labelledby="analysis-tab">
+        Analysis
+      </div>
+    </div>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+  </body>
+</html>

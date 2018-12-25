@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "SAD-reacts-only",
+    "version": "1.0",
+    "description": "Convert all reacts on facebook posts to sad reacts and only allow sad reacts",
+    "permissions": ["webRequest",
+                    "webRequestBlocking",
+                    "activeTab",
+                    "tabs",
+                    "storage",
+                    "<all_urls>"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "browser_action": {
+        "default_popup": "sad.html"
+    }
+}
