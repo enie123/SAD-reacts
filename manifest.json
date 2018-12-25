@@ -2,18 +2,16 @@
     "manifest_version": 2,
     "name": "SAD-reacts-only",
     "version": "1.0",
-    "description": "Convert all reacts on facebook posts to sad reacts and only allow sad reacts",
-    "permissions": ["webRequest",
-                    "webRequestBlocking",
-                    "activeTab",
-                    "tabs",
-                    "storage",
-                    "<all_urls>"],
+    "description": "",
     "content_scripts": [{
         "run_at": "document_start",
         "js": ["content.js"],
         "matches": ["https://www.facebook.com/*"]
       }],
+    "icons": { "32": "sad-icons/sad-32.png", 
+               "64": "sad-icons/sad-64.png",
+               "128": "sad-icons/sad-128.png"
+    },
     "browser_action": {
         "default_popup": "sad.html"
     }

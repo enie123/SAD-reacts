@@ -9,5 +9,5 @@ document.addEventListener('DOMContentLoaded', () => {
     Array.prototype.forEach.call(remove_reacts, function( node ) {
         node.parentNode.removeChild(node);
     });}
-    , 33); 
+    , 10); 
 });
