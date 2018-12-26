@@ -17,17 +17,35 @@ document.addEventListener('DOMContentLoaded', () => {
             node.classList.add('_3j7r');
         });
 
-        var like_buttons = document.querySelectorAll('i.sp_Gxq2MXbT8dg_2x'); 
-        console.log("Number of like buttons: " + like_buttons.length); 
-        Array.prototype.forEach.call(like_buttons, function( node ) {
-            node.classList.remove("sx_43c42c"); 
-            node.classList.remove("sp_Gxq2MXbT8dg_2x"); 
+        // var like_buttons = document.querySelectorAll('i.sp_Gxq2MXbT8dg_2x'); 
+        // console.log("Number of like buttons: " + like_buttons.length); 
+        // Array.prototype.forEach.call(like_buttons, function( node ) {
+        //     node.classList.remove("sx_43c42c"); 
+        //     node.classList.remove("sp_Gxq2MXbT8dg_2x"); 
+        //     node.classList.add("sad-icon"); 
+        // });
+
+        // var like_texts = document.querySelectorAll('a[data-testid="UFI2ReactionLink"]'); 
+        // console.log("Number of like texts: " + like_texts.length);
+        // Array.prototype.forEach.call(like_texts, function( node ) {
+        //     node.lastChild.nodeValue = "Sad"; 
+        // });
+
+        var like_buttons_alt = document.querySelectorAll('.UFILikeLink'); 
+        console.log("Number of like buttons alt: " + like_buttons_alt.length); 
+        Array.prototype.forEach.call(like_buttons_alt, function( node ) {
+            //node.classList.remove('._4x9-');
+            //node.classList.remove('_48-k');
+            //node.classList.remove('._4x9_');
+            // node.classList.remove("sx_43c42c"); 
+            // node.classList.remove("sp_Gxq2MXbT8dg_2x"); 
             node.classList.add("sad-icon"); 
         });
 
-        var like_texts = document.querySelectorAll('a[data-testid="UFI2ReactionLink"]'); 
-        console.log("Number of like texts: " + like_texts.length);
-        Array.prototype.forEach.call(like_texts, function( node ) {
+        // var like_texts_alt = document.querySelectorAll('a[data-testid="fb-ufi-likelink"], a[data-testid="ufi_comment_like_link"]'); 
+        var like_texts_alt = document.querySelectorAll('a[data-testid="fb-ufi-likelink"], .UFILikeLink.UFIReactionLink'); 
+        console.log("Number of like texts alt: " + like_texts_alt.length);
+        Array.prototype.forEach.call(like_texts_alt, function( node ) {
             node.lastChild.nodeValue = "Sad"; 
         });
     }, 10); 
