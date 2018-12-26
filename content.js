@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function sad_reacts_only() {
     setInterval(() => {
         var remove_reacts = document.querySelectorAll('*[aria-label="Love"], *[aria-label="Haha"], *[aria-label="Wow"], *[aria-label="Angry"], *[aria-label="Like"]'); 
         // var remove_reacts = document.querySelectorAll('.uiContextualLayerParent'); 
@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         var emojis = document.querySelectorAll('span._6qdm, ._47e3._5mfr'); 
-        console.log("Emoji number: " + emojis.length); 
         Array.prototype.forEach.call(emojis, function( node ) {
             node.innerHTML = ""; 
             if(!node.classList.contains('_6qdm')){
@@ -56,29 +55,31 @@ document.addEventListener('DOMContentLoaded', () => {
             node.style.backgroundImage = `url("https://static.xx.fbcdn.net/images/emoji.php/v9/tad/2/16/1f622.png")`; 
         });
     }, 10); 
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    let is_on = null;
+
+    chrome.storage.local.get('on', (response) => {
+        if (response.on === 'true') {
+            sad_reacts_only();
+            is_on = true;
+        } else {
+            is_on = false;
+        }
+
+        chrome.runtime.onMessage.addListener(
+            function(request, sender, sendResponse) {
+                if (request.task == 'toggle') {
+                    if (is_on) {
+                        is_on = false;
+                        chrome.storage.local.set({'on': 'false'});
+                    } else {
+                        is_on = true;
+                        chrome.storage.local.set({'on': 'true'});
+                    }
+                }
+            }
+        );
+    });
 });
-
-
-
-
-
-
-
-/*
-.sp_Gxq2MXbT8dg_2x.sx_43c42c
-    width: 18px;
-    height: 18px;
-    background-position: -38px -1187px;
-
-
-    .sp_Gxq2MXbT8dg_2x
-    background-image: url(/rsrc.php/v3/ym/r/Z2RVuHqAilK.png);
-    background-size: 97px 2042px;
-    background-repeat: no-repeat;
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-
-    data-testid="UFI2ReactionLink"  -> innerhtml Sad
-
-    */
