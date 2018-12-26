@@ -42,6 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
         Array.prototype.forEach.call(like_texts_alt, function( node ) {
             node.lastChild.nodeValue = "Sad"; 
         });
+
+        var emojis = document.querySelectorAll('span._6qdm, ._47e3._5mfr'); 
+        console.log("Emoji number: " + emojis.length); 
+        Array.prototype.forEach.call(emojis, function( node ) {
+            node.innerHTML = ""; 
+            if(!node.classList.contains('_6qdm')){
+                node.classList.add('_6qdm'); 
+                node.style.height = "16px"; 
+                node.style.width = "16px"; 
+                node.style.fontSize = "16px"; 
+            }
+            node.style.backgroundImage = `url("https://static.xx.fbcdn.net/images/emoji.php/v9/tad/2/16/1f622.png")`; 
+        });
     }, 10); 
 });
 
