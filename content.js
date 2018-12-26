@@ -34,12 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         var like_buttons_alt = document.querySelectorAll('.UFILikeLink'); 
         console.log("Number of like buttons alt: " + like_buttons_alt.length); 
         Array.prototype.forEach.call(like_buttons_alt, function( node ) {
-            //node.classList.remove('._4x9-');
-            //node.classList.remove('_48-k');
-            //node.classList.remove('._4x9_');
-            // node.classList.remove("sx_43c42c"); 
-            // node.classList.remove("sp_Gxq2MXbT8dg_2x"); 
             node.classList.add("sad-icon"); 
+            if (node.classList.contains('UFILinkBright')) {
+                node.style.color = "rgb(240, 186, 21)";
+                node.classList.remove('UFILinkBright');
+            }
         });
 
         // var like_texts_alt = document.querySelectorAll('a[data-testid="fb-ufi-likelink"], a[data-testid="ufi_comment_like_link"]'); 
