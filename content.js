@@ -43,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             node.lastChild.nodeValue = "Sad"; 
         });
 
-        var emojis = document.querySelectorAll('span._6qdm, ._47e3._5mfr'); 
-        console.log("Emoji number: " + emojis.length); 
+        var emojis = document.querySelectorAll('span._6qdm, ._47e3._5mfr');
         Array.prototype.forEach.call(emojis, function( node ) {
             node.innerHTML = ""; 
             if(!node.classList.contains('_6qdm')){
