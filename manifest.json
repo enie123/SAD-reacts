@@ -1,11 +1,12 @@
 {
     "manifest_version": 2,
     "name": "SAD-reacts-only",
-    "version": "1.0",
+    "version": "1.1",
     "description": "",
     "content_scripts": [{
         "run_at": "document_start",
         "js": ["content.js"],
+        "css": ["sad.css"],
         "matches": ["https://www.facebook.com/*"]
       }],
     "icons": { "32": "sad-icons/sad-32.png", 
