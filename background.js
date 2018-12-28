@@ -7,11 +7,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.browserAction.onClicked.addListener((tab) => {
     console.log("icon clicked"); 
      chrome.storage.local.get('on', (data) => {
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {'task':'toggle'}, function(response) {
-
-            });
-        });
+        console.log("Current status: " + data.on); 
         if (data.on === 'false') {
             //send message
             chrome.browserAction.setIcon({path: "/sad-icons/sad-128.png"});
@@ -20,5 +16,9 @@ chrome.browserAction.onClicked.addListener((tab) => {
             chrome.browserAction.setIcon({path: "/sad-icons/sad-128-grey.png"});
             chrome.storage.local.set({'on': 'false'});
         }
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {'task':'toggle'}, function(response) {
+            });
+        });
     });
 }); 

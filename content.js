@@ -67,14 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (response.on === 'false') {
                             sad_reacts_only();
                             sad_reacts_run = true;
-                            chrome.storage.local.set({'on': 'true'});
-                        } else {
-                            chrome.storage.local.set({'on': 'false'});
-                        }
+                        } 
                     }
                 });
         });
         chrome.storage.local.get('on', (response) => {
+            console.log("status: " + response.on); 
             if (response.on === 'true') {
                 if (!sad_reacts_run) sad_reacts_only();
                 sad_reacts_run = true;
