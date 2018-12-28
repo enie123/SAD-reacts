@@ -58,28 +58,26 @@ function sad_reacts_only() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    let is_on = null;
-
-    chrome.storage.local.get('on', (response) => {
-        if (response.on === 'true') {
-            sad_reacts_only();
-            is_on = true;
-        } else {
-            is_on = false;
-        }
-
+        let sad_reacts_run = false;
         chrome.runtime.onMessage.addListener(
             function(request, sender, sendResponse) {
-                if (request.task == 'toggle') {
-                    if (is_on) {
-                        is_on = false;
-                        chrome.storage.local.set({'on': 'false'});
-                    } else {
-                        is_on = true;
-                        chrome.storage.local.set({'on': 'true'});
+                console.log("received toggle message"); 
+                chrome.storage.local.get('on', (response) => {
+                    if (request.task == 'toggle') {
+                        if (response.on === 'false') {
+                            sad_reacts_only();
+                            sad_reacts_run = true;
+                            chrome.storage.local.set({'on': 'true'});
+                        } else {
+                            chrome.storage.local.set({'on': 'false'});
+                        }
                     }
-                }
-            }
-        );
-    });
+                });
+        });
+        chrome.storage.local.get('on', (response) => {
+            if (response.on === 'true') {
+                if (!sad_reacts_run) sad_reacts_only();
+                sad_reacts_run = true;
+            } 
+        });
 });

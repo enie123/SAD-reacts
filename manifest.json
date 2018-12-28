@@ -15,11 +15,9 @@
                "64": "sad-icons/sad-64.png",
                "128": "sad-icons/sad-128.png"
     },
-    "browser_action": {
-        "default_popup": "sad.html"
-    },
+    "browser_action": {},
     "background": {
         "scripts": ["background.js"],
-        "persistent": false
+        "persistent": true
     }
 }
