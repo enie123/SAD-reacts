@@ -1,25 +1,33 @@
 function sad_reacts_only() {
     setInterval(() => {
         var remove_reacts = document.querySelectorAll('*[aria-label="Love"], *[aria-label="Haha"], *[aria-label="Wow"], *[aria-label="Angry"], *[aria-label="Like"]'); 
-        // var remove_reacts = document.querySelectorAll('.uiContextualLayerParent'); 
         Array.prototype.forEach.call(remove_reacts, function( node ) {
             node.parentNode.removeChild(node);
         });
 
-        // var remove_icons = document.getElementsByClassName('_3j7l _2p78 _9-- _hly');
-        let reacts = ['_3j7l', '_3j7m', '_3j7n', '_3j7o', '_3j7q'];
-        var remove_icons = document.querySelectorAll('._3j7l, ._3j7m, ._3j7n, ._3j7o, ._3j7q');
+        let reacts = ['sx_25391b', 'sx_e2d83e', 'sx_65b9e6', 'sx_fa72ce', 'sx_2d729c'];
+        var remove_icons = document.querySelectorAll('.sx_25391b, .sx_e2d83e, .sx_65b9e6, .sx_fa72ce, .sx_2d729c');
         Array.prototype.forEach.call(remove_icons, function( node ) {
             for (let i = 0; i < reacts.length; i++) {
+                node.classList.remove(reacts[i]);
+            }
+            node.classList.add('sx_93d34c');
+        });
+
+        let reacts_comments = ['_3j7l', '_3j7m', '_3j7n', '_3j7o', '_3j7q'];
+        var remove_icons_comments = document.querySelectorAll('._3j7l, ._3j7m, ._3j7n, ._3j7o, ._3j7q');
+        Array.prototype.forEach.call(remove_icons_comments, function( node ) {
+            for (let i = 0; i < reacts_comments.length; i++) {
                 node.classList.remove(reacts[i]);
             }
             node.classList.add('_3j7r');
         });
 
-        var like_buttons = document.querySelectorAll('i.sp_Gxq2MXbT8dg_2x'); 
+
+        var like_buttons = document.querySelectorAll('i.sp_da4kKK250Ge_2x'); 
         Array.prototype.forEach.call(like_buttons, function( node ) {
-            node.classList.remove("sx_43c42c"); 
-            node.classList.remove("sp_Gxq2MXbT8dg_2x"); 
+            node.classList.remove("sx_4435ad"); 
+            node.classList.remove("sp_da4kKK250Ge_2x"); 
             node.classList.add("sad-icon-solo"); 
         });
 
@@ -37,7 +45,6 @@ function sad_reacts_only() {
             }
         });
 
-        // var like_texts_alt = document.querySelectorAll('a[data-testid="fb-ufi-likelink"], a[data-testid="ufi_comment_like_link"]'); 
         var like_texts_alt = document.querySelectorAll('a[data-testid="fb-ufi-likelink"], .UFILikeLink.UFIReactionLink'); 
         Array.prototype.forEach.call(like_texts_alt, function( node ) {
             node.lastChild.nodeValue = "Sad"; 
